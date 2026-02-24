@@ -18,3 +18,8 @@ jobs:
 
     - name: Show Files
       run: ls
+    - name: Send Slack Notification
+      run: |
+        curl -X POST -H 'Content-type: application/json' \
+        --data '{"text":"✅ CI Pipeline executed successfully"}' \
+        ${{ secrets.SLACK_WEBHOOK }}
